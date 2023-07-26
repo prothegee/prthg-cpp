@@ -1,0 +1,13 @@
+{
+    "cmake.generator": "Ninja",
+    "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
+    "cmake.configureSettings":
+    {
+        // "CMAKE_CXX_FLAGS": "-std=c++20 -fcoroutines", // linux
+        // "CMAKE_CXX_FLAGS": "/std:c++20 /EHsc /await", // windows
+        // "INC_VPCKG": true,
+        // "INC_VPCKG_DIR": "D:/vcpkg",
+        // "INC_PRTHGCPP_JSONCPP": true,
+        // "INC_PRTHGCPP_CRYPTOPP": true,
+    },
+}
