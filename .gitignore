@@ -1,0 +1,42 @@
+##
+## directory
+##
+.DS_Store
+.vs
+
+/[Bb]in
+/[Bb]uild
+/[Dd]ist
+/[Ll]og
+/[Ll]ogs
+/[Oo]bj
+/[Oo]out
+/[Tt]mp
+
+/.svelte-kit
+/node_modules
+/package
+
+
+##
+## extension
+##
+*.bak*
+*.exe*
+*.env
+*.env.*
+*.gen.*
+
+!.env.example
+
+
+##
+## file
+##
+/.vscode/launch.json
+/.vscode/settings.json
+/.vscode/task.json
+
+/pnpm-lock.yaml
+/package-lock.json
+/yarn.lock
