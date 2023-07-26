@@ -38,7 +38,7 @@ std::string prthgcpp::CUtility::GenRandomAlphanumeric(int length) const
 {
     std::string result;
 
-    if (length <= 0 ) { length = 1; }
+    if (length <= 0) { length = 1; }
 
     result.reserve(length);
 
