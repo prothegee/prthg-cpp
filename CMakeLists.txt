@@ -6,9 +6,9 @@ project(prthgcpp LANGUAGES CXX)
 set(PRTHGCPP_MAJOR 0)
 set(PRTHGCPP_MINOR 0)
 set(PRTHGCPP_PATCH 1)
-set(PRTHGCPP_DATES 20230726)
+set(PRTHGCPP_DATES 20230727)
 
-set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}-ALPHA")
+set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}")
 
 message(STATUS "(MSG) - ${PROJECT_NAME}: compiler ${CMAKE_CXX_COMPILER_ID}")
 message(STATUS "(MSG) - ${PROJECT_NAME}: configuring v${PRTHGCPP_VERSION}")
@@ -45,6 +45,8 @@ endif (HAS_COROUTINE)
 
 if (CMAKE_BUILD_TYPE STREQUAL "")
     set(CMAKE_BUILD_TYPE "Debug")
+elseif(CMAKE_BUILD_TYPE STREQUAL "Profile")
+    set(CMAKE_BUILD_TYPE "Debug")
 endif()
 # ########################################################################
 
@@ -52,6 +54,9 @@ endif()
 # ########################################################################
 set(PRTHGCPP_SOURCE_FILE
     src/prthgcpp/prthgcpp.cc
+
+    src/prthgcpp/classes/Cryptography.cc
+    src/prthgcpp/classes/Utility.cc
 )
 # ########################################################################
 
@@ -80,15 +85,11 @@ configure_file(
 
 
 # ########################################################################
-if(INC_PRTHGCPP_JSONCPP)
-    find_package(jsoncpp CONFIG REQUIRED)
-    target_link_libraries(${PROJECT_NAME} PRIVATE JsonCpp::JsonCpp)
-endif(INC_PRTHGCPP_JSONCPP)
+find_package(jsoncpp CONFIG REQUIRED)
+target_link_libraries(${PROJECT_NAME} PRIVATE JsonCpp::JsonCpp)
 
-if(INC_PRTHGCPP_CRYPTOPP)
-    find_package(cryptopp CONFIG REQUIRED)
-    target_link_libraries(${PROJECT_NAME}  PRIVATE cryptopp::cryptopp)
-endif(INC_PRTHGCPP_CRYPTOPP)
+find_package(cryptopp CONFIG REQUIRED)
+target_link_libraries(${PROJECT_NAME}  PRIVATE cryptopp::cryptopp)
 # ########################################################################
 
 
@@ -98,9 +99,6 @@ add_definitions(-D__PRTHGCPP_MINOR__=${PRTHGCPP_MINOR})
 add_definitions(-D__PRTHGCPP_PATCH__=${PRTHGCPP_PATCH})
 add_definitions(-D__PRTHGCPP_DATES__=${PRTHGCPP_DATES})
 add_definitions(-D__PRTHGCPP_VERSION__=${PRTHGCPP_VERSION})
-
-add_definitions(-D__INC_PRTHGCPP_JSONCPP__=${INC_PRTHGCPP_JSONCPP})
-add_definitions(-D__INC_PRTHGCPP_CRYPTOPP__=${INC_PRTHGCPP_CRYPTOPP})
 # ########################################################################
 
 
@@ -116,14 +114,13 @@ aux_source_directory(src/prthgcpp/types PRTHGCPP_TYPES_INC_SRC)
 
 # ########################################################################
 target_include_directories(${PROJECT_NAME}
-    PRIVATE
+    PUBLIC
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>
-        ${PRTHGCPP_INC_SRC}
 )
 
 target_sources(${PROJECT_NAME}
     PRIVATE
-        ${PRTHGCPP_INC_SRC}
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/prthgcpp
         ${PRTHGCPP_CLASSES_INC_SRC}
         ${PRTHGCPP_ENUMS_INC_SRC}
         ${PRTHGCPP_INTERFACES_INC_SRC}
