@@ -6,9 +6,7 @@
 #include <string>
 #include <random>
 
-#ifdef __INC_PRTHGCPP_JSONCPP__
-    #include <json/json.h>
-#endif // __INC_PRTHGCPP_JSONCPP__
+ #include <json/json.h>
 
 
 namespace prthgcpp
@@ -84,7 +82,6 @@ namespace prthgcpp
          */
         std::string ChangeInputLetterCase(const std::string input, const int letterCase) const;
 
-        #ifdef __INC_PRTHGCPP_JSONCPP__
         /**
          * @brief change json input to string
          * 
@@ -100,7 +97,6 @@ namespace prthgcpp
          * @return Json::Value 
          */
         Json::Value JsonFromString(const std::string input) const;
-        #endif // __INC_PRTHGCPP_JSONCPP__
     };
 } // namespace prthgcpp
 

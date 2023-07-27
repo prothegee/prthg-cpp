@@ -140,7 +140,6 @@ std::string prthgcpp::CUtility::ChangeInputLetterCase(const std::string input, c
     return result;
 }
 
-#ifdef __INC_PRTHGCPP_JSONCPP__
 std::string prthgcpp::CUtility::StringFromJson(const Json::Value input) const
 {
     std::string result;
@@ -164,4 +163,3 @@ Json::Value prthgcpp::CUtility::JsonFromString(const std::string input) const
 
     return result;
 }
-#endif // __INC_PRTHGCPP_JSONCPP__
