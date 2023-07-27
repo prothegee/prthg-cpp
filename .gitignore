@@ -35,7 +35,7 @@
 ##
 /.vscode/launch.json
 /.vscode/settings.json
-/.vscode/task.json
+/.vscode/tasks.json
 
 /pnpm-lock.yaml
 /package-lock.json
