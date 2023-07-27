@@ -2,28 +2,29 @@
 #define PRTHGCPP_CONFIG_H
 
 
-// prthgcpp major version
-#define __PRTHGCPP_MAJOR__ @PRTHGCPP_MAJOR@
+#ifndef __PRTHGCPP_MAJOR__
+    // prthgcpp major version
+    #define __PRTHGCPP_MAJOR__ @PRTHGCPP_MAJOR@
+#endif // __PRTHGCPP_MAJOR__
 
-// prthgcpp minor version
-#define __PRTHGCPP_MINOR__ @PRTHGCPP_MINOR@
+#ifndef __PRTHGCPP_MINOR__
+    // prthgcpp minor version
+    #define __PRTHGCPP_MINOR__ @PRTHGCPP_MINOR@
+#endif // __PRTHGCPP_MINOR__
 
-// prthgcpp patch version
-#define __PRTHGCPP_PATCH__ @PRTHGCPP_PATCH@
+#ifndef __PRTHGCPP_PATCH__
+    // prthgcpp patch version
+    #define __PRTHGCPP_PATCH__ @PRTHGCPP_PATCH@
+#endif // __PRTHGCPP_PATCH__
 
-// prthgcpp dates version
-#define __PRTHGCPP_DATES__ @PRTHGCPP_DATES@
+#ifndef __PRTHGCPP_DATES__
+    // prthgcpp dates version
+    #define __PRTHGCPP_DATES__ @PRTHGCPP_DATES@
+#endif // __PRTHGCPP_DATES__
 
-#undef __PRTHGCPP_VERSION__ // suppress redefinition
+#undef __PRTHGCPP_VERSION__
 // prthgcpp full version string
 #define __PRTHGCPP_VERSION__ "@PRTHGCPP_VERSION@"
-
-
-// prthgcpp include jsoncpp
-#define __INC_PRTHGCPP_JSONCPP__ @INC_PRTHGCPP_JSONCPP@
-
-// prthgcpp include cryptopp
-#define __INC_PRTHGCPP_CRYPTOPP__ @INC_PRTHGCPP_CRYPTOPP@
 
 
 #endif // PRTHGCPP_CONFIG_H

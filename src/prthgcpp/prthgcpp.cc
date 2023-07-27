@@ -1,1 +1,10 @@
-#include "prthgcpp/prthgcpp.h"
+#include "prthgcpp.h"
+
+
+prthgcpp::SGlobal::SGlobal()
+{
+}
+
+prthgcpp::SGlobal::~SGlobal()
+{
+}
