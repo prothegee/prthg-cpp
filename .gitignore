@@ -35,8 +35,10 @@
 ##
 /.vscode/launch.json
 /.vscode/settings.json
-/.vscode/task.json
+/.vscode/tasks.json
 
 /pnpm-lock.yaml
 /package-lock.json
 /yarn.lock
+
+/src/prthgcpp/config.json

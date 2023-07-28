@@ -6,7 +6,12 @@ prthg-cpp c++ library
 
 ## info
 
-status: internal/alpha
+- status:
+    - internal/dev as submodule
+
+- dependencies:
+    - [jsoncpp](https://github.com/open-source-parsers/jsoncpp)
+    - [cryptopp](https://github.com/weidai11/cryptopp)
 
 <br>
 

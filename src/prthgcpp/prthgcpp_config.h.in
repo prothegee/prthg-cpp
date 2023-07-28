@@ -1,0 +1,30 @@
+#ifndef PRTHGCPP_CONFIG_H
+#define PRTHGCPP_CONFIG_H
+
+
+#ifndef __PRTHGCPP_MAJOR__
+    // prthgcpp major version
+    #define __PRTHGCPP_MAJOR__ @PRTHGCPP_MAJOR@
+#endif // __PRTHGCPP_MAJOR__
+
+#ifndef __PRTHGCPP_MINOR__
+    // prthgcpp minor version
+    #define __PRTHGCPP_MINOR__ @PRTHGCPP_MINOR@
+#endif // __PRTHGCPP_MINOR__
+
+#ifndef __PRTHGCPP_PATCH__
+    // prthgcpp patch version
+    #define __PRTHGCPP_PATCH__ @PRTHGCPP_PATCH@
+#endif // __PRTHGCPP_PATCH__
+
+#ifndef __PRTHGCPP_DATES__
+    // prthgcpp dates version
+    #define __PRTHGCPP_DATES__ @PRTHGCPP_DATES@
+#endif // __PRTHGCPP_DATES__
+
+#undef __PRTHGCPP_VERSION__
+// prthgcpp full version string
+#define __PRTHGCPP_VERSION__ "@PRTHGCPP_VERSION@"
+
+
+#endif // PRTHGCPP_CONFIG_H
