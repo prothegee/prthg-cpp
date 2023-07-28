@@ -11,7 +11,7 @@ prthgcpp::CUtility::~CUtility()
 
 
 template <typename T>
-inline T prthgcpp::CUtility::GenRandomNumber(const T min, const T max) const
+inline T prthgcpp::CUtility::GenerateRandomNumber(const T min, const T max) const
 {
     T result;
 
@@ -34,7 +34,7 @@ inline T prthgcpp::CUtility::GenRandomNumber(const T min, const T max) const
     return result;
 }
 
-std::string prthgcpp::CUtility::GenRandomAlphanumeric(int length) const
+std::string prthgcpp::CUtility::GenerateRandomAlphanumeric(int length) const
 {
     std::string result;
 
@@ -44,17 +44,17 @@ std::string prthgcpp::CUtility::GenRandomAlphanumeric(int length) const
 
     for (int i = 0; i < length; i++)
     {
-        int j = GenRandomNumber(0, (int)m_alphanumeric.length() - 1);
+        int j = GenerateRandomNumber(0, (int)m_alphanumeric.length() - 1);
         result += m_alphanumeric[j];
     }
 
     return result;
 }
 
-std::string prthgcpp::CUtility::GenRandomUUID() const
+std::string prthgcpp::CUtility::GenerateRandomUUID() const
 {
     std::string result;
-    std::string str1(GenRandomAlphanumeric(8)), str2(GenRandomAlphanumeric(4)), str3(GenRandomAlphanumeric(4)), str4(GenRandomAlphanumeric(4)), str5(GenRandomAlphanumeric(12));
+    std::string str1(GenerateRandomAlphanumeric(8)), str2(GenerateRandomAlphanumeric(4)), str3(GenerateRandomAlphanumeric(4)), str4(GenerateRandomAlphanumeric(4)), str5(GenerateRandomAlphanumeric(12));
 
     result = str1 + "-" + str2 + "-" + str3 + "-" + str4 + "-" + str5;
 
@@ -112,7 +112,7 @@ std::string prthgcpp::CUtility::ChangeInputLetterCase(const std::string input, c
             for (int i = 0; i < input.length(); i++)
             {
                 //  0 is lower, 1 is upper
-                int mixedcase = GenRandomNumber(0, 1);
+                int mixedcase = GenerateRandomNumber(0, 1);
 
                 if (mixedcase == 0 && isalpha(input[i]))
                 {

@@ -36,7 +36,7 @@ namespace prthgcpp
          * @return T 
          */
         template <typename T>
-        T GenRandomNumber(const T min, const T max) const;
+        T GenerateRandomNumber(const T min, const T max) const;
 
         /**
          * @brief generate random alphanumeric
@@ -46,14 +46,14 @@ namespace prthgcpp
          * @param length 
          * @return std::string 
          */
-        std::string GenRandomAlphanumeric(int length) const;
+        std::string GenerateRandomAlphanumeric(int length) const;
 
         /**
          * @brief generate random uuid
          * 
          * @return std::string 
          */
-        std::string GenRandomUUID() const;
+        std::string GenerateRandomUUID() const;
 
         /**
          * @brief check if input is alphabetic value
