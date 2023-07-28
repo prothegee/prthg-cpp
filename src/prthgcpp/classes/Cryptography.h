@@ -46,6 +46,8 @@ namespace prthgcpp
         /**
          * @brief generate sha1 from input
          * 
+         * @note STATUS: OK
+         * 
          * @note return length will be 40
          * 
          * @param input 
@@ -55,6 +57,8 @@ namespace prthgcpp
 
         /**
          * @brief generate sha224 from input
+         * 
+         * @note STATUS: OK
          * 
          * @note return length will be 56
          * 
@@ -66,6 +70,8 @@ namespace prthgcpp
         /**
          * @brief generate sha256 from input
          * 
+         * @note STATUS: OK
+         * 
          * @note return length will be 64
          * 
          * @param input 
@@ -76,6 +82,8 @@ namespace prthgcpp
         /**
          * @brief generate sha384 from input
          * 
+         * @note STATUS: OK
+         * 
          * @note return length will be 96
          * 
          * @param input 
@@ -85,6 +93,8 @@ namespace prthgcpp
 
         /**
          * @brief generate sha512 from input
+         * 
+         * @note STATUS: OK
          * 
          * @note return length will be 128
          * 
@@ -97,6 +107,8 @@ namespace prthgcpp
         /**
          * @brief generate blake2b from input
          * 
+         * @note STATUS: OK
+         * 
          * @note return length will be 128
          * 
          * @param input 
@@ -108,6 +120,8 @@ namespace prthgcpp
         /**
          * @brief generate password hasher using scrypt
          * 
+         * @note STATUS: OK
+         * 
          * @param input 
          * @param salt 
          * @return std::string 
@@ -117,6 +131,8 @@ namespace prthgcpp
 
         /**
          * @brief encrypt input using XChaCha20 stream cipher
+         * 
+         * @note STATUS: OK
          * 
          * @note initializeKey length must 32 byte e.g. abcdefghijklmnopqrstuvwxyz123456
          * @note initializeVector length must 24 byte e.g. abcdefghijklmnopqrstuvwx
@@ -130,6 +146,8 @@ namespace prthgcpp
 
         /**
          * @brief decrypt input using XChaCha20 stream cipher
+         * 
+         * @note STATUS: OK
          * 
          * @note initializeKey length must 32 byte e.g. abcdefghijklmnopqrstuvwxyz123456
          * @note initializeVector length must 24 byte e.g. abcdefghijklmnopqrstuvwx
@@ -145,6 +163,8 @@ namespace prthgcpp
         /**
          * @brief encrypt input using CBC AES stream cipher
          * 
+         * @note STATUS: OK
+         * 
          * @note initializeKey length must 9 byte and can't start from 0 e.g. 123456789
          * @note initializeVector length must 9 byte and can't start from 0 e.g. 987654321
          * 
@@ -157,6 +177,8 @@ namespace prthgcpp
 
         /**
          * @brief decrypt input using CBC AES stream cipher
+         * 
+         * @note STATUS: OK
          * 
          * @note initializeKey length must 9 byte and can't start from 0 e.g. 123456789
          * @note initializeVector length must 9 byte and can't start from 0 e.g. 987654321
