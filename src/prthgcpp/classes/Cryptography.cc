@@ -218,7 +218,7 @@ std::string prthgcpp::CCryptography::DecryptCBCAES(std::string input, int initia
     CryptoPP::CBC_Mode_ExternalCipher::Decryption cbcDecryption(aesDecryption, iv);
 
     CryptoPP::StreamTransformationFilter decrypt(cbcDecryption, new CryptoPP::StringSink(result));
-    decrypt.Put(reinterpret_cast<const unsigned char*>( input.c_str() ), input.size());
+    decrypt.Put(reinterpret_cast<const unsigned char*>(input.c_str() ), input.size());
     decrypt.MessageEnd();
 
     return result;
