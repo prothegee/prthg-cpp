@@ -4,9 +4,9 @@ project(prthgcpp LANGUAGES CXX)
 
 # ########################################################################
 set(PRTHGCPP_MAJOR 0)
-set(PRTHGCPP_MINOR 0)
-set(PRTHGCPP_PATCH 1)
-set(PRTHGCPP_DATES 20230728)
+set(PRTHGCPP_MINOR 1)
+set(PRTHGCPP_PATCH 0)
+set(PRTHGCPP_DATES 20230729)
 
 set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}")
 
@@ -89,7 +89,7 @@ find_package(jsoncpp CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE JsonCpp::JsonCpp)
 
 find_package(cryptopp CONFIG REQUIRED)
-target_link_libraries(${PROJECT_NAME}  PRIVATE cryptopp::cryptopp)
+target_link_libraries(${PROJECT_NAME} PRIVATE cryptopp::cryptopp)
 # ########################################################################
 
 
@@ -131,5 +131,7 @@ target_sources(${PROJECT_NAME}
 
 
 # ########################################################################
-# reserved
+if(INC_TEST)
+    add_subdirectory(test)
+endif(INC_TEST)
 # ########################################################################

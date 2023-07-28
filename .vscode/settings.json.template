@@ -8,5 +8,6 @@
         // "INC_VPCKG": true,
         // "INC_VPCKG_DIR": "D:/vcpkg",
         // "BUILD_SHARED_LIBS": false,
+        // "INC_TEST": true,
     },
 }
