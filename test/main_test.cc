@@ -136,6 +136,14 @@ protected:
         }
 
 
+        std::string EncryptAES = crypt.EncryptAES(m_message, m_iKeyAES, m_iVecAES);
+        std::string DecryptAES = crypt.DecryptAES(EncryptAES, m_iKeyAES, m_iVecAES);
+        if (m_message != DecryptAES)
+        {
+            throw std::invalid_argument("AES Rijndael message & decrypt failed");
+        }
+
+
         std::string EncryptRC6 = crypt.EncryptRC6(m_message, m_iKeyRC6, m_iVecRC6);
         std::string DecryptRC6 = crypt.DecryptRC6(EncryptRC6, m_iKeyRC6, m_iVecRC6);
         if (m_message != DecryptRC6)
