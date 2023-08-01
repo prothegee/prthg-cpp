@@ -6,17 +6,21 @@
 class CTest1
 {
 private:
-    const bool m_run10 = false;
-    const bool m_run100 = false;
-
     const std::string m_email = "foo@bar.baz";
 
     const std::string m_password = "password123!";
     const std::string m_passwordSalt = "superSALT321!";
 
     const std::string m_message = "secret message #1 !";
-    const std::string m_initializeKeyStr = "abcdefghijklmnopqrstuvwxyz123456";
-    const std::string m_initializeVectorStr = "abcdefghijklmnopqrstuvwx";
+
+    const std::string m_iKeyXChaCha20 = "abcdefghijklmnopqrstuvwxyz123456";
+    const std::string m_iVecXChaCha20 = "abcdefghijklmnopqrstuvwx";
+
+    const int m_iKeyAES = 123456789;
+    const int m_iVecAES = 987654321;
+
+    const int m_iKeyRC6 = 1234567891234567;
+    const int m_iVecRC6 = 9876543219876543;
 
 protected:
     void RunTestUtilityClass()
@@ -60,7 +64,7 @@ protected:
         std::cout << "\n";
     }
 
-    void RunTestCryptographyClass()
+    void RunTestCryptographyClassHasher()
     {
         prthgcpp::CCryptography crypt;
 
@@ -105,6 +109,11 @@ protected:
         {
             throw std::invalid_argument("BLAKE2b failed");
         }
+    }
+
+    void RunTestCryptographyClassPasswordHasher()
+    {
+        prthgcpp::CCryptography crypt;
 
 
         std::string SCRYPT = crypt.GenerateHasherSCRYPT(m_password, m_passwordSalt);
@@ -112,13 +121,26 @@ protected:
         {
             throw std::invalid_argument("SCRYPT failed");
         }
+    }
+
+    void RunTestCryptographyClassStreamCipher()
+    {
+        prthgcpp::CCryptography crypt;
 
 
-        std::string EncryptXChaCha20 = crypt.EncryptXChaCha20(m_message, m_initializeKeyStr, m_initializeVectorStr);
-        std::string DecryptXChaCha20 = crypt.DecryptXChaCha20(EncryptXChaCha20, m_initializeKeyStr, m_initializeVectorStr);
+        std::string EncryptXChaCha20 = crypt.EncryptXChaCha20(m_message, m_iKeyXChaCha20, m_iVecXChaCha20);
+        std::string DecryptXChaCha20 = crypt.DecryptXChaCha20(EncryptXChaCha20, m_iKeyXChaCha20, m_iVecXChaCha20);
         if (m_message != DecryptXChaCha20)
         {
             throw std::invalid_argument("XChaCha20 message & decrypt failed");
+        }
+
+
+        std::string EncryptRC6 = crypt.EncryptRC6(m_message, m_iKeyRC6, m_iVecRC6);
+        std::string DecryptRC6 = crypt.DecryptRC6(EncryptRC6, m_iKeyRC6, m_iVecRC6);
+        if (m_message != DecryptRC6)
+        {
+            throw std::invalid_argument("RC6 message & decrypt failed");
         }
     }
 
@@ -139,47 +161,11 @@ public:
     {
         std::cout << "Test CCryptography: Started\n";
 
-        RunTestCryptographyClass();
+        RunTestCryptographyClassHasher();
+        RunTestCryptographyClassPasswordHasher();
+        RunTestCryptographyClassStreamCipher();
 
         std::cout << "Test CCryptography: Finished\n";
-    }
-
-    void TestCryptography10()
-    {
-        if (m_run10)
-        {
-            std::cout << "Test CCryptography 10 Times: Started\n";
-
-            for (int i = 0; i < 10; i++)
-            {
-                RunTestCryptographyClass();
-            }
-
-            std::cout << "Test CCryptography 10 Times: Finished\n";
-        }
-        else
-        {
-            std::cout << "Test CCryptography 10 Times: Skipped, you need to set it manually\n";
-        }
-    }
-
-    void TestCryptography100()
-    {
-        if (m_run10)
-        {
-            std::cout << "Test CCryptography 100 Times: Started\n";
-
-            for (int i = 0; i < 100; i++)
-            {
-                RunTestCryptographyClass();
-            }
-
-            std::cout << "Test CCryptography 100 Times: Finished\n";
-        }
-        else
-        {
-            std::cout << "Test CCryptography 100 Times: Skipped, you need to set it manually\n";
-        }
     }
 };
 
@@ -190,8 +176,6 @@ int main()
 
 
     pTest->TestCryptography();
-    pTest->TestCryptography10();
-    pTest->TestCryptography100();
     pTest->TestUtility();
 
 
