@@ -5,8 +5,8 @@ project(prthgcpp LANGUAGES CXX)
 # ########################################################################
 set(PRTHGCPP_MAJOR 0)
 set(PRTHGCPP_MINOR 1)
-set(PRTHGCPP_PATCH 0)
-set(PRTHGCPP_DATES 20230729)
+set(PRTHGCPP_PATCH 1)
+set(PRTHGCPP_DATES 20230801)
 
 set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}")
 
