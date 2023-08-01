@@ -188,7 +188,7 @@ std::string prthgcpp::CCryptography::DecryptXChaCha20(std::string input, std::st
 }
 
 
-std::string prthgcpp::CCryptography::EncryptCBCAES(std::string input, int initializeKey, int initializeVector) const
+std::string prthgcpp::CCryptography::EncryptAES(std::string input, int initializeKey, int initializeVector) const
 {
     std::string result;
 
@@ -206,7 +206,7 @@ std::string prthgcpp::CCryptography::EncryptCBCAES(std::string input, int initia
     return result;
 }
 
-std::string prthgcpp::CCryptography::DecryptCBCAES(std::string input, int initializeKey, int initializeVector) const
+std::string prthgcpp::CCryptography::DecryptAES(std::string input, int initializeKey, int initializeVector) const
 {
     std::string result;
 

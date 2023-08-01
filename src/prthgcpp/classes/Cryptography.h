@@ -162,7 +162,7 @@ namespace prthgcpp
 
 
         /**
-         * @brief encrypt input using CBC AES stream cipher
+         * @brief encrypt input using CBC AES Rijndael stream cipher
          * 
          * @note STATUS: OK
          * 
@@ -174,10 +174,10 @@ namespace prthgcpp
          * @param initializeVector 
          * @return std::string unicode
          */
-        std::string EncryptCBCAES(std::string input, int initializeKey, int initializeVector) const;
+        std::string EncryptAES(std::string input, int initializeKey, int initializeVector) const;
 
         /**
-         * @brief decrypt input using CBC AES stream cipher
+         * @brief decrypt input using CBC AES Rijndael stream cipher
          * 
          * @note STATUS: OK
          * 
@@ -189,11 +189,13 @@ namespace prthgcpp
          * @param initializeVector 
          * @return std::string unicode
          */
-        std::string DecryptCBCAES(std::string input, int initializeKey, int initializeVector) const;
+        std::string DecryptAES(std::string input, int initializeKey, int initializeVector) const;
 
 
         /**
          * @brief encrypt input using CBC R6 stream cipher
+         * 
+         * @note STATUS: OK
          * 
          * @note initializeKey length must 16 byte and can't start from 0 e.g. 1234567891234567
          * @note initializeVector length must 16 byte and can't start from 0 e.g. 9876543219876543
@@ -207,6 +209,8 @@ namespace prthgcpp
 
         /**
          * @brief decrypt input using CBC R6 stream cipher
+         * 
+         * @note STATUS: OK
          * 
          * @note initializeKey length must 16 byte and can't start from 0 e.g. 1234567891234567
          * @note initializeVector length must 16 byte and can't start from 0 e.g. 9876543219876543
