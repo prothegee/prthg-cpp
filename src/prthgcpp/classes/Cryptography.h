@@ -205,7 +205,7 @@ namespace prthgcpp
          * @param initializeVector 
          * @return std::string 
          */
-        std::string EncryptRC6(std::string input, int initializeKey, int initializeVector) const;
+        std::string EncryptRC6(std::string input, long initializeKey, long initializeVector) const;
 
         /**
          * @brief decrypt input using CBC R6 stream cipher
@@ -220,7 +220,7 @@ namespace prthgcpp
          * @param initializeVector 
          * @return std::string 
          */
-        std::string DecryptRC6(std::string input, int initializeKey, int initializeVector) const;
+        std::string DecryptRC6(std::string input, long initializeKey, long initializeVector) const;
     };
 } // namespace prthgcpp
 
