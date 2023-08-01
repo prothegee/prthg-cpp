@@ -19,8 +19,8 @@ private:
     const int m_iKeyAES = 123456789;
     const int m_iVecAES = 987654321;
 
-    const int m_iKeyRC6 = 1234567891234567;
-    const int m_iVecRC6 = 9876543219876543;
+    const long m_iKeyRC6 = 1234567891234567;
+    const long m_iVecRC6 = 9876543219876543;
 
 protected:
     void RunTestUtilityClass()

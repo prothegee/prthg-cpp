@@ -224,15 +224,15 @@ std::string prthgcpp::CCryptography::DecryptAES(std::string input, int initializ
     return result;
 }
 
-std::string prthgcpp::CCryptography::EncryptRC6(std::string input, int initializeKey, int initializeVector) const
+std::string prthgcpp::CCryptography::EncryptRC6(std::string input, long initializeKey, long initializeVector) const
 {
     std::string tmp, result;
 
     CryptoPP::SecByteBlock key(CryptoPP::RC6::DEFAULT_KEYLENGTH);
-    memset(key, (int)initializeKey, CryptoPP::RC6::DEFAULT_KEYLENGTH);
+    memset(key, (long)initializeKey, CryptoPP::RC6::DEFAULT_KEYLENGTH);
 
     CryptoPP::byte iv[CryptoPP::RC6::BLOCKSIZE];
-    memset(iv, (int)initializeVector, CryptoPP::RC6::BLOCKSIZE);
+    memset(iv, (long)initializeVector, CryptoPP::RC6::BLOCKSIZE);
 
     CryptoPP::CBC_Mode<CryptoPP::RC6>::Encryption enc;
 
@@ -245,15 +245,15 @@ std::string prthgcpp::CCryptography::EncryptRC6(std::string input, int initializ
     return result;
 }
 
-std::string prthgcpp::CCryptography::DecryptRC6(std::string input, int initializeKey, int initializeVector) const
+std::string prthgcpp::CCryptography::DecryptRC6(std::string input, long initializeKey, long initializeVector) const
 {
     std::string tmp, result;
 
     CryptoPP::SecByteBlock key(CryptoPP::RC6::DEFAULT_KEYLENGTH);
-    memset(key, (int)initializeKey, CryptoPP::RC6::DEFAULT_KEYLENGTH);
+    memset(key, (long)initializeKey, CryptoPP::RC6::DEFAULT_KEYLENGTH);
 
     CryptoPP::byte iv[CryptoPP::RC6::BLOCKSIZE];
-    memset(iv, (int)initializeVector, CryptoPP::RC6::BLOCKSIZE);
+    memset(iv, (long)initializeVector, CryptoPP::RC6::BLOCKSIZE);
 
     CryptoPP::CBC_Mode<CryptoPP::RC6>::Decryption dec;
 
