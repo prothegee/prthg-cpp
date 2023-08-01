@@ -22,6 +22,7 @@
 #include <cryptopp/gcm.h>
 #include <cryptopp/aes.h>
 #include <cryptopp/chacha.h>
+#include <cryptopp/rc6.h>
 
 
 namespace prthgcpp
@@ -51,7 +52,7 @@ namespace prthgcpp
          * @note return length will be 40
          * 
          * @param input 
-         * @return std::string 
+         * @return std::string asci
          */
         std::string GenerateSHA1(const std::string &input) const;
 
@@ -63,7 +64,7 @@ namespace prthgcpp
          * @note return length will be 56
          * 
          * @param input 
-         * @return std::string 
+         * @return std::string asci
          */
         std::string GenerateSHA224(const std::string &input) const;
 
@@ -155,7 +156,7 @@ namespace prthgcpp
          * @param input 
          * @param initializeVector 
          * @param initializeKey 
-         * @return std::string 
+         * @return std::string unicode
          */
         std::string DecryptXChaCha20(std::string input, std::string initializeKey, std::string initializeVector) const;
 
@@ -171,7 +172,7 @@ namespace prthgcpp
          * @param input 
          * @param initializeKey 
          * @param initializeVector 
-         * @return std::string 
+         * @return std::string unicode
          */
         std::string EncryptCBCAES(std::string input, int initializeKey, int initializeVector) const;
 
@@ -186,9 +187,36 @@ namespace prthgcpp
          * @param input 
          * @param initializeKey 
          * @param initializeVector 
-         * @return std::string 
+         * @return std::string unicode
          */
         std::string DecryptCBCAES(std::string input, int initializeKey, int initializeVector) const;
+
+
+        /**
+         * @brief encrypt input using CBC R6 stream cipher
+         * 
+         * @note initializeKey length must 16 byte and can't start from 0 e.g. 1234567891234567
+         * @note initializeVector length must 16 byte and can't start from 0 e.g. 9876543219876543
+         * 
+         * @param input 
+         * @param initializeKey 
+         * @param initializeVector 
+         * @return std::string 
+         */
+        std::string EncryptRC6(std::string input, int initializeKey, int initializeVector) const;
+
+        /**
+         * @brief decrypt input using CBC R6 stream cipher
+         * 
+         * @note initializeKey length must 16 byte and can't start from 0 e.g. 1234567891234567
+         * @note initializeVector length must 16 byte and can't start from 0 e.g. 9876543219876543
+         * 
+         * @param input 
+         * @param initializeKey 
+         * @param initializeVector 
+         * @return std::string 
+         */
+        std::string DecryptRC6(std::string input, int initializeKey, int initializeVector) const;
     };
 } // namespace prthgcpp
 
