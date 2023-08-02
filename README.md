@@ -1,6 +1,6 @@
 # prthg-cpp library
 
-<div style="text-align: center;">
+<div style="text-align: center;" align="center">
     <img
         src=./docs/assets/prthg-cpp-color-transparent.png
         style="display: block;width: 30%;margin-left: auto;margin-right: auto;"
