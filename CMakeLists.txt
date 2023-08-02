@@ -5,8 +5,8 @@ project(prthgcpp LANGUAGES CXX)
 # ########################################################################
 set(PRTHGCPP_MAJOR 0)
 set(PRTHGCPP_MINOR 1)
-set(PRTHGCPP_PATCH 1)
-set(PRTHGCPP_DATES 20230801)
+set(PRTHGCPP_PATCH 0)
+set(PRTHGCPP_DATES 20230803)
 
 set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}")
 
@@ -16,12 +16,11 @@ message(STATUS "(MSG) - ${PROJECT_NAME}: configuring v${PRTHGCPP_VERSION}")
 
 
 # ########################################################################
-if(INC_VPCKG)
-    include("${INC_VPCKG_DIR}/scripts/buildsystems/vcpkg.cmake")
-    message(STATUS "(MSG) - ${PROJECT_NAME}: INC_VPCKG_DIR is supplied as ${INC_VPCKG_DIR}")
+if(CMAKE_TOOLCHAIN_FILE STREQUAL "")
+    message(STATUS "(MSG) - ${PROJECT_NAME}: CMAKE_TOOLCHAIN_FILE is not supplied")
 else()
-    message(STATUS "(MSG) - ${PROJECT_NAME}: INC_VPCKG_DIR is not supplied, will assume library already include from workstation environment")
-endif(INC_VPCKG)
+    message(STATUS "(MSG) - ${PROJECT_NAME}: CMAKE_TOOLCHAIN_FILE is supplied as '${CMAKE_TOOLCHAIN_FILE}'")
+endif()
 # ########################################################################
 
 
@@ -48,6 +47,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "")
 elseif(CMAKE_BUILD_TYPE STREQUAL "Profile")
     set(CMAKE_BUILD_TYPE "Debug")
 endif()
+message(STATUS "(MSG) - ${PROJECT_NAME}: build type is ${CMAKE_BUILD_TYPE}")
 # ########################################################################
 
 

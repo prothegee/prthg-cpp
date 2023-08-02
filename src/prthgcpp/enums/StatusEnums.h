@@ -16,11 +16,11 @@ namespace prthgcpp
     // enum class for status build
     enum class ECStatusBuild : int
     {
-        undefined = 0,
-        development,
-        staging,
-        demo,
-        production,
+        undefined = EStatusBuild::eStatusBuild_undefined,
+        development = EStatusBuild::eStatusBuild_development,
+        staging = EStatusBuild::eStatusBuild_staging,
+        demo = EStatusBuild::eStatusBuild_demo,
+        production = EStatusBuild::eStatusBuild_production,
     };
 } // namespace prthgcpp
 
