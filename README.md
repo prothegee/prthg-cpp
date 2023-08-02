@@ -3,7 +3,7 @@
 <div style="text-align: center;">
     <img
         src=./docs/assets/prthg-cpp-color-transparent.png
-        style="width: 30%;"
+        style="display: block;width: 30%;margin-left: auto;margin-right: auto;"
     />
 </div>
 
