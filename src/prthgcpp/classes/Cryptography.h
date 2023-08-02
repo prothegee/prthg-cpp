@@ -152,6 +152,7 @@ namespace prthgcpp
          * 
          * @note initializeKey length must 32 byte e.g. abcdefghijklmnopqrstuvwxyz123456
          * @note initializeVector length must 24 byte e.g. abcdefghijklmnopqrstuvwx
+         * @note considering use RC6 if you want asci/alphanumeric result rather than unicode
          * 
          * @param input 
          * @param initializeVector 
@@ -168,6 +169,7 @@ namespace prthgcpp
          * 
          * @note initializeKey length must 9 byte and can't start from 0 e.g. 123456789
          * @note initializeVector length must 9 byte and can't start from 0 e.g. 987654321
+         * @note considering use RC6 if you want asci/alphanumeric result rather than unicode
          * 
          * @param input 
          * @param initializeKey 
@@ -183,6 +185,7 @@ namespace prthgcpp
          * 
          * @note initializeKey length must 9 byte and can't start from 0 e.g. 123456789
          * @note initializeVector length must 9 byte and can't start from 0 e.g. 987654321
+         * @note considering use RC6 if you want asci/alphanumeric result rather than unicode
          * 
          * @param input 
          * @param initializeKey 
@@ -203,7 +206,7 @@ namespace prthgcpp
          * @param input 
          * @param initializeKey 
          * @param initializeVector 
-         * @return std::string 
+         * @return std::string asci/alphanumeric
          */
         std::string EncryptRC6(std::string input, long initializeKey, long initializeVector) const;
 
@@ -218,7 +221,7 @@ namespace prthgcpp
          * @param input 
          * @param initializeKey 
          * @param initializeVector 
-         * @return std::string 
+         * @return std::string asci/alphanumeric
          */
         std::string DecryptRC6(std::string input, long initializeKey, long initializeVector) const;
     };

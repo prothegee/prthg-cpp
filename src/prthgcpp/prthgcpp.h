@@ -9,6 +9,9 @@
 #pragma region all in one header
 #include "prthgcpp/classes/Cryptography.h"
 #include "prthgcpp/classes/Utility.h"
+
+#include "prthgcpp/enums/LanguageEnums.h"
+#include "prthgcpp/enums/StatusEnums.h"
 #pragma endregion
 
 
