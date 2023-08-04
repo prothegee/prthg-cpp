@@ -23,47 +23,6 @@ private:
     const long m_iVecRC6 = 9876543219876543;
 
 protected:
-    void RunTestUtilityClass()
-    {
-        prthgcpp::CUtility util;
-
-
-        std::cout << "Generate Random Alphanumeric:\n";
-        for (int i = 0; i < 10; i++)
-        {
-            std::cout << util.GenerateRandomAlphanumeric(i) << "\n";
-        }
-        std::cout << "\n";
-
-
-        std::cout << "Generate Random UUID:\n";
-        for (int i = 0; i < 10; i++)
-        {
-            std::string uuid = util.GenerateRandomUUID();
-            std::cout << uuid << "\n";
-            std::cout << util.ChangeInputLetterCase(uuid, 0) << "\n";
-            std::cout << util.ChangeInputLetterCase(uuid, 1) << "\n";
-            std::cout << util.ChangeInputLetterCase(uuid, 2) << "\n";
-            std::cout << "\n";
-        }
-
-
-        const std::string t1 = "qweasd";
-        if (util.CheckInputIsAlphabetic(t1))
-        {
-            std::cout << t1 << " is alphabetic\n";
-        }
-        std::cout << "\n";
-
-
-        const std::string t2 = "asdzxc123456";
-        if (util.CheckInputIsAlphaNumeric(t2))
-        {
-            std::cout << t2 << " is alphanumeric\n";
-        }
-        std::cout << "\n";
-    }
-
     void RunTestCryptographyClassHasher()
     {
         prthgcpp::CCryptography crypt;
@@ -156,15 +115,6 @@ public:
     CTest1(){}
     ~CTest1(){}
 
-    void TestUtility()
-    {
-        std::cout << "Test CUtility: Started\n";
-
-        RunTestUtilityClass();
-    
-        std::cout << "Test CUtility: Finished\n";
-    }
-
     void TestCryptography()
     {
         std::cout << "Test CCryptography: Started\n";
@@ -184,7 +134,6 @@ int main()
 
 
     pTest->TestCryptography();
-    pTest->TestUtility();
 
 
     return 0;
