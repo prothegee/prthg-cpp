@@ -22,9 +22,19 @@
     #define __PRTHGCPP_DATES__ @PRTHGCPP_DATES@
 #endif // __PRTHGCPP_DATES__
 
-#undef __PRTHGCPP_VERSION__
-// prthgcpp full version string
-#define __PRTHGCPP_VERSION__ "@PRTHGCPP_VERSION@"
+#ifndef __PRTHGCPP_VERSION__
+    // prthgcpp version string
+    #define __PRTHGCPP_VERSION__ "@PRTHGCPP_VERSION@"
+#endif
+
+#ifndef __PRTHGCPP_FULL_VERSION__
+    // prthgcpp full version string
+    #define __PRTHGCPP_FULL_VERSION__ "@PRTHGCPP_FULL_VERSION@"
+#endif
+
+#ifndef __PRTHGCPP_INC_DROGON__
+    #define __PRTHGCPP_INC_DROGON__ @CMAKE_PRTHGCPP_INC_DROGON@
+#endif // __PRTHGCPP_INC_DROGON__
 
 
 #endif // PRTHGCPP_CONFIG_H
