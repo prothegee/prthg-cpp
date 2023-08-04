@@ -6,7 +6,7 @@ project(prthgcpp LANGUAGES CXX)
 set(PRTHGCPP_MAJOR 0)
 set(PRTHGCPP_MINOR 1)
 set(PRTHGCPP_PATCH 0)
-set(PRTHGCPP_DATES 20230803)
+set(PRTHGCPP_DATES 20230804)
 
 set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}")
 
@@ -132,6 +132,6 @@ target_sources(${PROJECT_NAME}
 
 # ########################################################################
 if(INC_TEST)
-    add_subdirectory(test)
+    add_subdirectory(test/cryptography)
 endif(INC_TEST)
 # ########################################################################

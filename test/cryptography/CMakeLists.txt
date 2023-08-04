@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
-project(prthgcpp-test LANGUAGES CXX)
+project(test-cryptography LANGUAGES CXX)
 
 
 # ########################################################################
 add_executable(${PROJECT_NAME}
-    main_test.cc
+    main.cc
 )
 # ########################################################################
 

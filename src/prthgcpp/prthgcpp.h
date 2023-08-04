@@ -8,8 +8,10 @@
 
 #pragma region all in one header
 #include "prthgcpp/classes/Cryptography.h"
+#include "prthgcpp/classes/DateAndTime.h"
 #include "prthgcpp/classes/Utility.h"
 
+#include "prthgcpp/enums/DateEnums.h"
 #include "prthgcpp/enums/LanguageEnums.h"
 #include "prthgcpp/enums/StatusEnums.h"
 #pragma endregion
@@ -28,6 +30,9 @@ namespace prthgcpp
 
         // cryptography accesss shared pointer
         inline static std::shared_ptr<prthgcpp::CCryptography> pCryptography = std::make_shared<prthgcpp::CCryptography>();
+
+        // date and time accesss shared pointer
+        inline static std::shared_ptr<prthgcpp::CDateAndTime> pDateAndTime = std::make_shared<prthgcpp::CDateAndTime>();
 
         // utility accesss shared pointer
         inline static std::shared_ptr<prthgcpp::CUtility> pUtility = std::make_shared<prthgcpp::CUtility>();
