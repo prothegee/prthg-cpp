@@ -4,11 +4,12 @@ project(prthgcpp LANGUAGES CXX)
 
 # ########################################################################
 set(PRTHGCPP_MAJOR 0)
-set(PRTHGCPP_MINOR 1)
+set(PRTHGCPP_MINOR 2)
 set(PRTHGCPP_PATCH 0)
-set(PRTHGCPP_DATES 20230804)
+set(PRTHGCPP_DATES 20230805)
 
-set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}")
+set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}")
+set(PRTHGCPP_FULL_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}")
 
 message(STATUS "(MSG) - ${PROJECT_NAME}: compiler ${CMAKE_CXX_COMPILER_ID}")
 message(STATUS "(MSG) - ${PROJECT_NAME}: configuring v${PRTHGCPP_VERSION}")
@@ -25,7 +26,9 @@ endif()
 
 
 # ########################################################################
-# reserved options
+find_package(jsoncpp CONFIG REQUIRED)
+find_package(cryptopp CONFIG REQUIRED)
+find_package(Drogon CONFIG REQUIRED)
 # ########################################################################
 
 
@@ -73,6 +76,26 @@ endif(BUILD_SHARED_LIBS)
 
 
 # ########################################################################
+# start of core required package
+target_link_libraries(${PROJECT_NAME} PRIVATE JsonCpp::JsonCpp)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE cryptopp::cryptopp)
+# end of core required package
+
+# start of optional package
+if(Drogon_FOUND)
+    target_link_libraries(${PROJECT_NAME} PRIVATE Drogon::Drogon)
+    set(CMAKE_PRTHGCPP_INC_DROGON true)
+    message(STATUS "(MSG) - ${PROJECT_NAME}: drogon package found")
+else(Drogon_FOUND)
+    message(STATUS "(MSG) - ${PROJECT_NAME}: drogon package not found")
+    set(CMAKE_PRTHGCPP_INC_DROGON false)
+endif(Drogon_FOUND)
+# end of optional package
+# ########################################################################
+
+
+# ########################################################################
 include(GenerateExportHeader)
 
 generate_export_header(${PROJECT_NAME} EXPORT_FILE_NAME ${PROJECT_SOURCE_DIR}/src/prthgcpp/prthgcpp_export.gen.h)
@@ -81,24 +104,6 @@ configure_file(
     ${PROJECT_SOURCE_DIR}/src/prthgcpp/prthgcpp_config.h.in
     ${PROJECT_SOURCE_DIR}/src/prthgcpp/prthgcpp_config.gen.h
 )
-# ########################################################################
-
-
-# ########################################################################
-find_package(jsoncpp CONFIG REQUIRED)
-target_link_libraries(${PROJECT_NAME} PRIVATE JsonCpp::JsonCpp)
-
-find_package(cryptopp CONFIG REQUIRED)
-target_link_libraries(${PROJECT_NAME} PRIVATE cryptopp::cryptopp)
-# ########################################################################
-
-
-# ########################################################################
-add_definitions(-D__PRTHGCPP_MAJOR__=${PRTHGCPP_MAJOR})
-add_definitions(-D__PRTHGCPP_MINOR__=${PRTHGCPP_MINOR})
-add_definitions(-D__PRTHGCPP_PATCH__=${PRTHGCPP_PATCH})
-add_definitions(-D__PRTHGCPP_DATES__=${PRTHGCPP_DATES})
-add_definitions(-D__PRTHGCPP_VERSION__=${PRTHGCPP_VERSION})
 # ########################################################################
 
 
@@ -131,7 +136,7 @@ target_sources(${PROJECT_NAME}
 
 
 # ########################################################################
-if(INC_TEST)
+if(PRTHGCPP_INC_TEST)
     add_subdirectory(test/cryptography)
-endif(INC_TEST)
+endif(PRTHGCPP_INC_TEST)
 # ########################################################################

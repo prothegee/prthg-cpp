@@ -29,7 +29,7 @@
         - [cryptopp](https://github.com/weidai11/cryptopp)
 
     - __optional:__
-        - N/A
+        - [drogon framework](https://github.com/drogonframework/drogon)
 
 <br>
 

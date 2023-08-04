@@ -9,6 +9,7 @@
 #pragma region all in one header
 #include "prthgcpp/classes/Cryptography.h"
 #include "prthgcpp/classes/DateAndTime.h"
+#include "prthgcpp/classes/DrogonFramework.h"
 #include "prthgcpp/classes/Utility.h"
 
 #include "prthgcpp/enums/DateEnums.h"
@@ -36,6 +37,11 @@ namespace prthgcpp
 
         // utility accesss shared pointer
         inline static std::shared_ptr<prthgcpp::CUtility> pUtility = std::make_shared<prthgcpp::CUtility>();
+
+        #if __PRTHGCPP_INC_DROGON__
+        // drogon framework accesss shared pointer
+        inline static std::shared_ptr<prthgcpp::CDrogonFramework> pDrogonFramework = std::make_shared<prthgcpp::CDrogonFramework>();
+        #endif // __PRTHGCPP_INC_DROGON__
     };
 
 
