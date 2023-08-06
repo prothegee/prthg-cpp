@@ -20,13 +20,19 @@ inline T prthgcpp::CUtility::GenerateRandomNumber(const T min, const T max) cons
 
     if (std::is_same<T, int>::value)
     {
-        std::uniform_int<int> distribute(min, max);
+        std::uniform_int<> distribute(min, max);
 
         result = distribute(re);
     }
     else if (std::is_same<T, double>::value)
     {
-        std::uniform_real<double> distribute(min, max);
+        std::uniform_real<> distribute(min, max);
+
+        result = distribute(re);
+    }
+    else
+    {
+        std::uniform_int<> distribute(min, max);
 
         result = distribute(re);
     }

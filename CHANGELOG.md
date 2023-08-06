@@ -13,6 +13,14 @@ this is a template and always be on top
 ---
 -->
 
+### 0.1.1.20230807
+
+- patch GenerateRandomNumber
+
+<br>
+
+---
+
 ### 0.1.0.20230806
 
 - adding mailsystem class
