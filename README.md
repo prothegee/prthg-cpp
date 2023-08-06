@@ -31,6 +31,8 @@
     - __optional:__
         - [drogon framework](https://github.com/drogonframework/drogon)
 
+        - [mailio](https://github.com/karastojko/mailio)
+
 <br>
 
 ---
