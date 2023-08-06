@@ -10,11 +10,14 @@
 #include "prthgcpp/classes/Cryptography.h"
 #include "prthgcpp/classes/DateAndTime.h"
 #include "prthgcpp/classes/DrogonFramework.h"
+#include "prthgcpp/classes/MailSystem.h"
 #include "prthgcpp/classes/Utility.h"
 
 #include "prthgcpp/enums/DateEnums.h"
 #include "prthgcpp/enums/LanguageEnums.h"
 #include "prthgcpp/enums/StatusEnums.h"
+
+#include "prthgcpp/types/ResultTypes.h"
 #pragma endregion
 
 
@@ -42,6 +45,9 @@ namespace prthgcpp
         // drogon framework accesss shared pointer
         inline static std::shared_ptr<prthgcpp::CDrogonFramework> pDrogonFramework = std::make_shared<prthgcpp::CDrogonFramework>();
         #endif // __PRTHGCPP_INC_DROGON__
+
+        // mail system accesss shared pointer
+        inline static std::shared_ptr<prthgcpp::CMailSystem> pMailSystem = std::make_shared<prthgcpp::CMailSystem>();
     };
 
 
