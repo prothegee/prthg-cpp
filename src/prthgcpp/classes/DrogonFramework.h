@@ -6,6 +6,7 @@
 #if __PRTHGCPP_INC_DROGON__
 #include <drogon/drogon.h>
 
+
 namespace prthgcpp
 {
     /**
@@ -103,6 +104,27 @@ namespace prthgcpp
          */
         void ViewInvokeBundleJS(const std::string &bundleJS);
         #pragma endregion
+
+        /**
+         * @brief evaluate request origin from json array whitelist
+         * 
+         * @param pReq 
+         * @param whitelist 
+         * @return true 
+         * @return false 
+         */
+        bool EvaluateOriginIsAllowed(drogon::HttpRequestPtr pReq, const Json::Value &whitelist) const;
+
+        /**
+         * @brief evaluate request origin from json array whitelist
+         * 
+         * @note drogon coroutine
+         * 
+         * @param pReq 
+         * @param whitelist 
+         * @return drogon::Task<bool> 
+         */
+        drogon::Task<bool> EvaluateOriginIsAllowedCoro(drogon::HttpRequestPtr pReq, const Json::Value &whitelist) const;
     };
 } // namespace prthgcpp
 
