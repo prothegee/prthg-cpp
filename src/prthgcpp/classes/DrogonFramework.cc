@@ -69,4 +69,36 @@ void prthgcpp::CDrogonFramework::ViewInvokeBundleJS(const std::string &bundleJS)
     m_viewData.insert("bundle_js", bundle);
 }
 
+bool prthgcpp::CDrogonFramework::EvaluateOriginIsAllowed(drogon::HttpRequestPtr pReq, const Json::Value &whitelist) const
+{
+    bool result{false};
+
+    for (auto host : whitelist)
+    {
+        if (host.asString().rfind(pReq->getHeader("origin"), 0) == 0)
+        {
+            result = true;
+            break;
+        }
+    }
+
+    return result;
+}
+
+drogon::Task<bool> prthgcpp::CDrogonFramework::EvaluateOriginIsAllowedCoro(drogon::HttpRequestPtr pReq, const Json::Value &whitelist) const
+{
+    bool result{false};
+
+    for (auto host : whitelist)
+    {
+        if (host.asString().rfind(pReq->getHeader("origin"), 0) == 0)
+        {
+            result = true;
+            break;
+        }
+    }
+
+    co_return result;
+}
+
 #endif // __PRTHGCPP_INC_DROGON__
