@@ -33,8 +33,20 @@
 #endif
 
 #ifndef __PRTHGCPP_INC_DROGON__
+    // prthgcpp include drogon framework
     #define __PRTHGCPP_INC_DROGON__ @CMAKE_PRTHGCPP_INC_DROGON@
 #endif // __PRTHGCPP_INC_DROGON__
+
+#ifndef __PRTHGCPP_INC_MAILIO__
+    // prthgcpp include mailio
+    #define __PRTHGCPP_INC_MAILIO__ @CMAKE_PRTHGCPP_INC_MAILIO@
+
+    #if _WIN32
+        #ifndef _WIN32_WINDOWS
+            #define _WIN32_WINDOWS 0x0A00
+        #endif // _WIN32_WINDOWS
+    #endif
+#endif //__PRTHGCPP_INC_MAILIO__
 
 
 #endif // PRTHGCPP_CONFIG_H

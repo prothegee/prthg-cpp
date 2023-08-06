@@ -4,9 +4,9 @@ project(prthgcpp LANGUAGES CXX)
 
 # ########################################################################
 set(PRTHGCPP_MAJOR 0)
-set(PRTHGCPP_MINOR 2)
+set(PRTHGCPP_MINOR 1)
 set(PRTHGCPP_PATCH 0)
-set(PRTHGCPP_DATES 20230805)
+set(PRTHGCPP_DATES 20230806)
 
 set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}")
 set(PRTHGCPP_FULL_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}")
@@ -29,6 +29,7 @@ endif()
 find_package(jsoncpp CONFIG REQUIRED)
 find_package(cryptopp CONFIG REQUIRED)
 find_package(Drogon CONFIG REQUIRED)
+find_package(mailio CONFIG REQUIRED)
 # ########################################################################
 
 
@@ -85,13 +86,35 @@ target_link_libraries(${PROJECT_NAME} PRIVATE cryptopp::cryptopp)
 # start of optional package
 if(Drogon_FOUND)
     target_link_libraries(${PROJECT_NAME} PRIVATE Drogon::Drogon)
-    set(CMAKE_PRTHGCPP_INC_DROGON true)
     message(STATUS "(MSG) - ${PROJECT_NAME}: drogon package found")
+    set(CMAKE_PRTHGCPP_INC_DROGON true)
 else(Drogon_FOUND)
     message(STATUS "(MSG) - ${PROJECT_NAME}: drogon package not found")
     set(CMAKE_PRTHGCPP_INC_DROGON false)
 endif(Drogon_FOUND)
+
+if(mailio_FOUND)
+    target_link_libraries(${PROJECT_NAME}  PRIVATE mailio)
+    message(STATUS "(MSG) - ${PROJECT_NAME}: mailio package found")
+    set(CMAKE_PRTHGCPP_INC_MAILIO true)
+else(mailio_FOUND)
+    message(STATUS "(MSG) - ${PROJECT_NAME}: mailio package not found")
+    set(CMAKE_PRTHGCPP_INC_MAILIO false)
+endif(mailio_FOUND)
 # end of optional package
+# ########################################################################
+
+
+# ########################################################################
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    # reserved
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    # reserved
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    # reserved
+else()
+	message(FATAL_ERROR "(FER) - ${PROJECT_NAME}: not support for ${CMAKE_SYSTEM_NAME}")
+endif()
 # ########################################################################
 
 
