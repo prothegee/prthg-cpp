@@ -10,34 +10,27 @@ prthgcpp::CUtility::~CUtility()
 }
 
 
-template <typename T>
-inline T prthgcpp::CUtility::GenerateRandomNumber(const T min, const T max) const
+
+
+int prthgcpp::CUtility::GenerateRandomNumber(const int min, const int max) const
 {
-    T result;
+    int result;
 
     std::random_device rd;
     std::default_random_engine re(rd());
+    std::uniform_int<int> distribute(min, max);
 
-    if (std::is_same<T, int>::value)
-    {
-        std::uniform_int<> distribute(min, max);
+    return distribute(re);
+}
+double prthgcpp::CUtility::GenerateRandomNumber(const double min, const double max) const
+{
+    double result;
 
-        result = distribute(re);
-    }
-    else if (std::is_same<T, double>::value)
-    {
-        std::uniform_real<> distribute(min, max);
+    std::random_device rd;
+    std::default_random_engine re(rd());
+    std::uniform_real<double> distribute(min, max);
 
-        result = distribute(re);
-    }
-    else
-    {
-        std::uniform_int<> distribute(min, max);
-
-        result = distribute(re);
-    }
-
-    return result;
+    return distribute(re);
 }
 
 std::string prthgcpp::CUtility::GenerateRandomAlphanumeric(int length) const
