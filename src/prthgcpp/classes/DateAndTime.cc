@@ -1,5 +1,7 @@
 #include "DateAndTime.h"
 
+#include <iomanip>
+
 
 prthgcpp::CDateAndTime::CDateAndTime()
 {
