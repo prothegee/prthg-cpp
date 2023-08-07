@@ -18,9 +18,9 @@ int prthgcpp::CUtility::GenerateRandomNumber(const int min, const int max) const
 
     std::random_device rd;
     std::default_random_engine re(rd());
-    std::uniform_int<int> distribute(min, max);
+    std::uniform_int_distribution<int> distribute(min, max);
 
-    result = static_cast<int>(distribute(re));
+    result = distribute(re);
 
     return result;
 }
@@ -32,7 +32,7 @@ double prthgcpp::CUtility::GenerateRandomNumber(const double min, const double m
     std::default_random_engine re(rd());
     std::uniform_real<double> distribute(min, max);
 
-    result = static_cast<double>(distribute(re));
+    result = distribute(re);
 
     return distribute(re);
 }
