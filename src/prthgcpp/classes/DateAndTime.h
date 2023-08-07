@@ -4,6 +4,7 @@
 #include "prthgcpp/prthgcpp_export.gen.h"
 
 #include <time.h>
+#include <ctime>
 #include <chrono>
 #include <string>
 
