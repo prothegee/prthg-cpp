@@ -30,13 +30,19 @@ namespace prthgcpp
         /**
          * @brief generate random number
          * 
-         * @tparam T posibly int or double
          * @param min 
          * @param max 
-         * @return T 
+         * @return int 
          */
-        template <typename T>
-        T GenerateRandomNumber(const T min, const T max) const;
+        int GenerateRandomNumber(const int min, const int max) const;
+        /**
+         * @brief generate random number
+         * 
+         * @param min 
+         * @param max 
+         * @return double 
+         */
+        double GenerateRandomNumber(const double min, const double max) const;
 
         /**
          * @brief generate random alphanumeric
