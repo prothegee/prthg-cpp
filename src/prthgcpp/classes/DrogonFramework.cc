@@ -13,12 +13,6 @@ prthgcpp::CDrogonFramework::~CDrogonFramework()
 
 void prthgcpp::CDrogonFramework::ViewInvokePublicView(drogon::HttpRequestPtr &pReq)
 {
-    std::string username;
-    (pReq->session()->get<std::string>("username").length() <= 0)
-        ? username = "anonymous"
-        : username = pReq->session()->get<std::string>("username");
-    m_viewData.insert("username", username);
-
     try
     {
         m_viewData.insert("protocol", (drogon::app().getCustomConfig()["status"].asInt() == 1) ? "http://" : "https://");
@@ -30,18 +24,8 @@ void prthgcpp::CDrogonFramework::ViewInvokePublicView(drogon::HttpRequestPtr &pR
 
     m_viewData.insert("currentPath", pReq->getPath());
 
-    m_viewData.insert("jsessionid", pReq->getCookie("JSESSIONID"));
+    m_viewData.insert("sessionid", pReq->getCookie("JSESSIONID"));
     
-}
-
-void prthgcpp::CDrogonFramework::ViewInvokeMessageStatus(const int &messageStatusCode)
-{
-    m_viewData.insert("messageStatus", std::to_string(messageStatusCode));
-}
-
-void prthgcpp::CDrogonFramework::ViewInvokeMessageContext(const std::string &messageContextString)
-{
-    m_viewData.insert("messageContext", messageContextString);
 }
 
 void prthgcpp::CDrogonFramework::ViewInvokeLanguage(const std::string &language)

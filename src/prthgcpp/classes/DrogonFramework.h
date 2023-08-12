@@ -51,26 +51,6 @@ namespace prthgcpp
         void ViewInvokePublicView(drogon::HttpRequestPtr &pReq);
 
         /**
-         * @brief invoke message status number
-         * 
-         * @note object to pass on .csp view response:
-         * @note [[messageStatus]]
-         * 
-         * @param messageStatusCode 
-         */
-        void ViewInvokeMessageStatus(const int &messageStatusCode);
-
-        /**
-         * @brief invoke message context string
-         * 
-         * @note object to pass on .csp view response:
-         * @note [[messageContext]]
-         * 
-         * @param messageContextString 
-         */
-        void ViewInvokeMessageContext(const std::string &messageContextString);
-
-        /**
          * @brief invoke language
          * 
          * @note object to pass on .csp view response:
