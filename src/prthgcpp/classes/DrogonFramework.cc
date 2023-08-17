@@ -62,6 +62,16 @@ void prthgcpp::CDrogonFramework::ViewInvokeUsername(drogon::HttpRequestPtr &pReq
     m_viewData.insert("username", username);
 }
 
+void prthgcpp::CDrogonFramework::ViewInvokeCommonMessage(const std::string &commonMessage)
+{
+    m_viewData.insert("commonMessage", commonMessage);
+}
+
+void prthgcpp::CDrogonFramework::ViewInvokeCommonMessageCode(const int &commonMessageCode)
+{
+    m_viewData.insert("commonMessageCode", std::to_string(commonMessageCode));
+}
+
 bool prthgcpp::CDrogonFramework::EvaluateOriginIsAllowed(drogon::HttpRequestPtr pReq, const Json::Value &whitelist) const
 {
     bool result{false};

@@ -27,7 +27,7 @@ namespace prthgcpp
         CDrogonFramework(/* args */);
         ~CDrogonFramework();
 
-        // shared view data object
+        // public shared http view data object
         drogon::HttpViewData m_viewData;
 
         #pragma region view data integration // NOTE: all view data function must start with 'View' prefix
@@ -41,8 +41,8 @@ namespace prthgcpp
          * @note ---
          * 
          * @note value to pass on .csp view reponse:
-         * @note [[username]] > by default if username session is not found, result will be "anonymous"
-         * @note [[protocol]] > http:// if status config is 1, otherwise https://
+         * @note [[username]] : by default if username session is not found, result will be "anonymous"
+         * @note [[protocol]] : http:// if status config is 1, otherwise https://
          * @note [[currentPath]]
          * @note [[jsessionid]]
          * 
@@ -95,6 +95,26 @@ namespace prthgcpp
          * @param pReq 
          */
         void ViewInvokeUsername(drogon::HttpRequestPtr &pReq);
+
+        /**
+         * @brief invoke common_message
+         * 
+         * @note object to pass on .csp view response:
+         * @note `[[commonMessage]]`
+         * 
+         * @param commonMessage 
+         */
+        void ViewInvokeCommonMessage(const std::string &commonMessage);
+
+        /**
+         * @brief invoke common_message_code
+         * 
+         * @note object to pass on .csp view response:
+         * @note [[commonMessageCode]]
+         * 
+         * @param commonMessageCode 
+         */
+        void ViewInvokeCommonMessageCode(const int &commonMessageCode);
         #pragma endregion
 
         /**
