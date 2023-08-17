@@ -53,6 +53,15 @@ void prthgcpp::CDrogonFramework::ViewInvokeBundleJS(const std::string &bundleJS)
     m_viewData.insert("bundle_js", bundle);
 }
 
+void prthgcpp::CDrogonFramework::ViewInvokeUsername(drogon::HttpRequestPtr &pReq)
+{
+    std::string username;
+
+    (pReq->session()->get<std::string>("username").length() <= 0) ? username = "anonymous" : username = pReq->session()->get<std::string>("username");
+
+    m_viewData.insert("username", username);
+}
+
 bool prthgcpp::CDrogonFramework::EvaluateOriginIsAllowed(drogon::HttpRequestPtr pReq, const Json::Value &whitelist) const
 {
     bool result{false};

@@ -12,6 +12,7 @@ add_executable(${PROJECT_NAME}
 # ########################################################################
 target_link_libraries(${PROJECT_NAME} PRIVATE JsonCpp::JsonCpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE cryptopp::cryptopp)
+target_link_libraries(${PROJECT_NAME} PRIVATE Drogon::Drogon)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE prthgcpp)
 # ########################################################################

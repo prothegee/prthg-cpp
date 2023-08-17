@@ -64,7 +64,7 @@ namespace prthgcpp
          * @brief invoke css bundle
          * 
          * @note object to pass on .csp view response:
-         * @note [[bundle_css]] > e.g. <link rel='stylesheet' href='[[bundle_css]]'>
+         * @note [[bundle_css]] e.g. <link rel='stylesheet' href='[[bundle_css]]'>
          * 
          * @note the idea is to integrate drogon & svelte to create frontend
          * 
@@ -76,13 +76,25 @@ namespace prthgcpp
          * @brief invoke js bundle
          * 
          * @note object to pass on .csp view response:
-         * @note [[bundle_js]] > e.g. <script defer src='[[bundle_js]]'></script>
+         * @note [[bundle_js]] e.g. <script defer src='[[bundle_js]]'></script>
          * 
          * @note the idea is to integrate drogon & svelte to create frontend
          * 
          * @param bundleCSS 
          */
         void ViewInvokeBundleJS(const std::string &bundleJS);
+
+        /**
+         * @brief invoke username session
+         * 
+         * @note object to pass on .csp view response:
+         * @note [[username]]
+         * 
+         * @note by default if "username" string session is not found, result is "anonymous"
+         * 
+         * @param pReq 
+         */
+        void ViewInvokeUsername(drogon::HttpRequestPtr &pReq);
         #pragma endregion
 
         /**

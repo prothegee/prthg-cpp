@@ -5,14 +5,14 @@ project(prthgcpp LANGUAGES CXX)
 # ########################################################################
 set(PRTHGCPP_MAJOR 0)
 set(PRTHGCPP_MINOR 1)
-set(PRTHGCPP_PATCH 1)
-set(PRTHGCPP_DATES 20230812)
+set(PRTHGCPP_PATCH 2)
+set(PRTHGCPP_DATES 20230818)
 
 set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}")
 set(PRTHGCPP_FULL_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}")
 
 message(STATUS "(MSG) - ${PROJECT_NAME}: compiler ${CMAKE_CXX_COMPILER_ID}")
-message(STATUS "(MSG) - ${PROJECT_NAME}: configuring v${PRTHGCPP_VERSION}")
+message(STATUS "(MSG) - ${PROJECT_NAME}: configuring v${PRTHGCPP_FULL_VERSION}")
 # ########################################################################
 
 
