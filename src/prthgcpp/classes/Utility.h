@@ -5,6 +5,7 @@
 
 #include <string>
 #include <random>
+#include <algorithm>
 
 #include <json/json.h>
 
