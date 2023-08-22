@@ -171,3 +171,13 @@ Json::Value prthgcpp::CUtility::JsonFromString(const std::string input) const
 
     return result;
 }
+
+void prthgcpp::CUtility::FindAndReplaceAll(std::string &source, const std::string &query, const std::string &replacement)
+{
+    size_t position = 0;
+    while ((position = source.find(query, position)) != std::string::npos)
+    {
+        source.replace(position, query.size(), replacement);
+        position += replacement.size();
+    }
+}

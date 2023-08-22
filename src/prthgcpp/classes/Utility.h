@@ -98,6 +98,15 @@ namespace prthgcpp
          * @return Json::Value 
          */
         Json::Value JsonFromString(const std::string input) const;
+
+        /**
+         * @brief find and replace search string query to string replacement object
+         * 
+         * @param source 
+         * @param query 
+         * @param replacement 
+         */
+        void FindAndReplaceAll(std::string &source, const std::string &query, const std::string &replacement);
     };
 } // namespace prthgcpp
 
