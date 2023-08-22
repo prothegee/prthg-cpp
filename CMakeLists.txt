@@ -5,14 +5,14 @@ project(prthgcpp LANGUAGES CXX)
 # ########################################################################
 set(PRTHGCPP_MAJOR 0)
 set(PRTHGCPP_MINOR 1)
-set(PRTHGCPP_PATCH 2)
-set(PRTHGCPP_DATES 20230818)
+set(PRTHGCPP_PATCH 3)
+set(PRTHGCPP_DATES 20230823)
 
 set(PRTHGCPP_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}")
 set(PRTHGCPP_FULL_VERSION "${PRTHGCPP_MAJOR}.${PRTHGCPP_MINOR}.${PRTHGCPP_PATCH}.${PRTHGCPP_DATES}")
 
 message(STATUS "(MSG) - ${PROJECT_NAME}: compiler ${CMAKE_CXX_COMPILER_ID}")
-message(STATUS "(MSG) - ${PROJECT_NAME}: configuring v${PRTHGCPP_FULL_VERSION}")
+message(STATUS "(MSG) - ${PROJECT_NAME}: configuring ${PRTHGCPP_FULL_VERSION}")
 # ########################################################################
 
 
@@ -79,14 +79,16 @@ endif(BUILD_SHARED_LIBS)
 # ########################################################################
 # start of core required package
 target_link_libraries(${PROJECT_NAME} PRIVATE JsonCpp::JsonCpp)
+message(STATUS "(MSG) - ${PROJECT_NAME}: jsoncpp package found ${jsoncpp_VERSION}")
 
 target_link_libraries(${PROJECT_NAME} PRIVATE cryptopp::cryptopp)
+message(STATUS "(MSG) - ${PROJECT_NAME}: cryptopp package found ${cryptopp_VERSION}")
 # end of core required package
 
 # start of optional package
 if(Drogon_FOUND)
     target_link_libraries(${PROJECT_NAME} PRIVATE Drogon::Drogon)
-    message(STATUS "(MSG) - ${PROJECT_NAME}: drogon package found")
+    message(STATUS "(MSG) - ${PROJECT_NAME}: drogon package found ${Drogon_VERSION}")
     set(CMAKE_PRTHGCPP_INC_DROGON true)
 else(Drogon_FOUND)
     message(STATUS "(MSG) - ${PROJECT_NAME}: drogon package not found")
@@ -95,7 +97,7 @@ endif(Drogon_FOUND)
 
 if(mailio_FOUND)
     target_link_libraries(${PROJECT_NAME}  PRIVATE mailio)
-    message(STATUS "(MSG) - ${PROJECT_NAME}: mailio package found")
+    message(STATUS "(MSG) - ${PROJECT_NAME}: mailio package found ${mailio_VERSION}")
     set(CMAKE_PRTHGCPP_INC_MAILIO true)
 else(mailio_FOUND)
     message(STATUS "(MSG) - ${PROJECT_NAME}: mailio package not found")
